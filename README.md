@@ -11,4 +11,6 @@
 <li>JS</li>
 </ul>
 
+![game](/public/Screenshot_1.jpg)
+
 December 2023
