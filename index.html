@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png+xml" href="/snake/snake.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Playpen+Sans:wght@500;600;800&display=swap"
+    rel="stylesheet">
+  <title>Snake</title>
+  <script type="module" crossorigin src="/snake/assets/index-sEwMU1Yk.js"></script>
+  <link rel="stylesheet" crossorigin href="/snake/assets/index-Rlpz6TXo.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="content">
+      <h1 class="title">Snake game</h1>
+      <div class="audio-container">
+        <audio id="audioPlayer">
+          Your browser does not support the audio element.
+        </audio>
+        <label class="toggle-label">
+          Music
+          <input type="checkbox" id="audioToggle" class="visibility-hidden">
+          <div class="toggle-switch"></div>
+        </label>
+      </div>
+      <div id="scoreText" class="score-text">0</div>
+      <div class="btn-container">
+        <button id="toggleButton" class="button">
+          <div id="toggleText">Start</div>
+        </button>
+        <button id="resetButton" class="button" disabled>Reset</button>
+      </div>
+      <audio id="crashSound" src="audio/sound/3-egg-shaker-rolls-32718.mp3"></audio>
+      <audio id="eatSound" src="audio/sound/snake-hissing-6092.mp3"></audio>
+    </div>
+    <canvas id="gameBoard" class="game-board" height="800" width="800"></canvas>
+  </div>
+
+
+</body>
+
+</html>
