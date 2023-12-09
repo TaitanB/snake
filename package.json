@@ -1,0 +1,15 @@
+{
+  "name": "snake",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://TaitanB.github.io/snake",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
