@@ -11,6 +11,6 @@
 <li>JS</li>
 </ul>
 
-![game](/public/Screenshot_1.jpg)
+![game](/public/Screenshot_3.jpg)
 
 December 2023

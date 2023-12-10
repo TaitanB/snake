@@ -9,7 +9,7 @@ const toggleText = document.getElementById("toggleText");
 
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
-const unitSize = 30;
+const unitSize = 20;
 const boardBackground = "rgb(125, 202, 182)";
 
 const snakeColor = "green";
@@ -75,6 +75,7 @@ function startGame(event) {
     displayPause();
   }
 }
+
 function nextStep() {
   if (running) {
     setTimeout(() => {
@@ -85,7 +86,7 @@ function nextStep() {
       checkGameOver();
       nextStep();
     }, 250);
-  } else {
+  } else if (!running) {
     if (pause) {
       displayPause();
     } else {
