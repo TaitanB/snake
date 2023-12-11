@@ -3,9 +3,13 @@ import "./audio";
 const gameBoard = document.getElementById("gameBoard");
 const ctx = gameBoard.getContext("2d");
 const scoreText = document.getElementById("scoreText");
-const resetBtn = document.getElementById("resetButton");
+const endBtn = document.getElementById("endButton");
 const toggleBtn = document.getElementById("toggleButton");
 const toggleText = document.getElementById("toggleText");
+
+const backdrop = document.getElementById("backdrop");
+const form = document.getElementById("form");
+const formInput = document.getElementById("formInput");
 
 const gameWidth = gameBoard.width;
 const gameHeight = gameBoard.height;
@@ -45,7 +49,9 @@ const DIRECTION_DOWN = "DOWN";
 let currentDirection = DIRECTION_RIGHT;
 
 window.addEventListener("keydown", changeDirection);
-resetBtn.addEventListener("click", resetGame);
+endBtn.addEventListener("click", () =>
+  backdrop.classList.remove("visibility-hidden")
+);
 toggleBtn.addEventListener("click", startGame);
 
 function getRandomColor() {
@@ -91,7 +97,7 @@ function nextStep() {
       displayPause();
     } else {
       toggleBtn.disabled = true;
-      resetBtn.disabled = false;
+      endBtn.disabled = false;
       displayGameOver();
     }
   }
@@ -293,21 +299,75 @@ function resetGame() {
   ];
   clearBoard();
   toggleBtn.disabled = false;
-  resetBtn.disabled = true;
+  endBtn.disabled = true;
   crashSound.pause();
   crashSound.currentTime = 0;
 }
 
-const crashSound = document.getElementById("crashSound");
-const eatSound = document.getElementById("eatSound");
-
 function handleCrash() {
+  const crashSound = document.getElementById("crashSound");
+
   crashSound.play();
 }
 
 function handleEat() {
+  const eatSound = document.getElementById("eatSound");
+
   if (eatSound.paused) {
     eatSound.currentTime = 0;
     eatSound.play();
   }
 }
+
+backdrop.addEventListener("click", (event) => {
+  if (event.target === backdrop) {
+    backdrop.classList.add("visibility-hidden");
+  }
+});
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const playerName = formInput.value.trim();
+  let name = "Player";
+
+  if (playerName !== "") {
+    name = playerName;
+  }
+  saveScore(name, score);
+
+  updateScoreList();
+
+  backdrop.classList.add("visibility-hidden");
+
+  resetGame();
+
+  formInput.value = "";
+});
+
+function saveScore(playerName, score) {
+  const existingScores = JSON.parse(localStorage.getItem("scores")) || [];
+
+  existingScores.push({ playerName, score });
+
+  localStorage.setItem("scores", JSON.stringify(existingScores));
+}
+
+function updateScoreList() {
+  const scoreList = document.getElementById("scoreList");
+
+  const existingScores = JSON.parse(localStorage.getItem("scores")) || [];
+
+  scoreList.innerHTML = "";
+
+  const sortedPlayers = existingScores.sort((a, b) => b.score - a.score);
+
+  sortedPlayers.forEach(({ playerName, score }) => {
+    scoreList.insertAdjacentHTML(
+      "beforeend",
+      `<li><div>${playerName} <span>${score}</span></div></li>`
+    );
+  });
+}
+
+document.addEventListener("DOMContentLoaded", updateScoreList);

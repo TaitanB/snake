@@ -18,10 +18,10 @@ body {
   min-width: 360px;
   height: 100vh;
   background-color: #242424;
-  background-image: url(./images/bg1.jpg);
-  background-position: center;
+  background-image: url(./images/snake-2.png), url(./images/bg1.jpg);
+  background-position: bottom 1rem left 3rem, center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 200px, cover;
 }
 
 img {
@@ -41,7 +41,6 @@ ol,
 li {
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 h1,
@@ -72,7 +71,7 @@ button {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
@@ -167,14 +166,70 @@ button {
   border-radius: 1rem;
 }
 
-/* .game-board.paused {
-  background-image: url("/images/snake-1.png");
-  background-size: cover;
-  background-position: center;
+.score-top {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+.score-title {
+  font-size: 2rem;
+  text-shadow: 0 4px 8px red;
+  text-align: center;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.score-list {
+  height: 500px;
+  padding: 1rem 1rem 1rem 3rem;
+  gap: 0.5rem;
+  background-color: #24242495;
+  border-radius: 1rem;
+  overflow-y: auto;
 }
 
-.game-board.game-over {
-  background-image: url("/images/snake-2.png");
-  background-size: cover;
-  background-position: center;
-} */
+.score-list > li {
+  border-bottom: 1px dashed;
+}
+
+.score-list > li > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #24242475;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  padding: 2rem;
+  background-color: #24242495;
+  border: 3px solid rgba(255, 0, 0, 0.75);
+  border-radius: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
