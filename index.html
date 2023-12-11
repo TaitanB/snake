@@ -12,8 +12,8 @@
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Playpen+Sans:wght@500;600;800&display=swap"
     rel="stylesheet">
   <title>Snake</title>
-  <script type="module" crossorigin src="/snake/assets/index-XIf21fNn.js"></script>
-  <link rel="stylesheet" crossorigin href="/snake/assets/index-Rlpz6TXo.css">
+  <script type="module" crossorigin src="/snake/assets/index-eeY9j8ef.js"></script>
+  <link rel="stylesheet" crossorigin href="/snake/assets/index-9GRTaWh1.css">
 </head>
 
 <body>
@@ -36,12 +36,27 @@
         <button id="toggleButton" class="button">
           <div id="toggleText">Start</div>
         </button>
-        <button id="resetButton" class="button" disabled>Reset</button>
+        <button id="endButton" class="button" disabled>End Game</button>
       </div>
       <audio id="crashSound" src="audio/sound/3-egg-shaker-rolls-32718.mp3"></audio>
       <audio id="eatSound" src="audio/sound/snake-hissing-6092.mp3"></audio>
     </div>
     <canvas id="gameBoard" class="game-board" height="600" width="600"></canvas>
+    <div class="score-top">
+      <h2 class="score-title">Score Top</h2>
+      <ol id="scoreList" class="score-list"></ol>
+    </div>
+    <div id="backdrop" class="backdrop visibility-hidden">
+      <form id="form" class="form">
+        <label class="label">
+          Enter your nickname:
+          <input id="formInput" type="text" class="input" placeholder="Player" pattern="[A-Za-zА-Яа-яЁёЇїІіЄєҐґ0-9]+$"
+            title="Only letters and numbers are allowed">
+        </label>
+        <button type="submit" class="button">Save</button>
+      </form>
+    </div>
+
   </div>
 
 
